@@ -1,12 +1,4 @@
 """Main file for data structure and algorithm scripts."""
 
-import sys
-from sorting import *
-
-def main(argv):
-    """Entry point to the REPL."""
-    for arg in argv:
-        print(arg)
-
-if __name__ == "__main__":
-    main(sys.argv)
+from searching.binary_search import binary_search
+from sorting.bubble_sort import naive_bubble_sort, optimized_bubble_sort
