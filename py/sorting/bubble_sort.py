@@ -1,11 +1,9 @@
-from util.util import get_random_int_list, make_comparator
-
-
+from util.util import make_comparator
 
 def naive_bubble_sort(lst, ascending=True):
     """Naive implementation of the bubble sort algorithm.
 
-    Repeatedly passes over a list. In each pass, compares two adjacent list items and swap them
+    Repeatedly passes over a list. In each pass, compares two adjacent list items and swaps them
     if not in correct order. If no swap occurs during a pass, the list has been sorted. Break.
 
     Example:
@@ -46,6 +44,7 @@ def optimized_bubble_sort(lst, ascending=True):
         ascending (bool): Sort order.
 
     Returns:
+        List of sorted integers.
     """
 
     compare = make_comparator(ascending)
@@ -57,7 +56,7 @@ def optimized_bubble_sort(lst, ascending=True):
                 lst[i - 1], lst[i] = lst[i], lst[i - 1]
                 new_count = i
 
-        comp_count = new_count  # in next pass, compare just before the last swapped element.
+        comp_count = new_count  # in next pass, compare up to just before the last swapped element.
         if comp_count == 0:
             break
 
