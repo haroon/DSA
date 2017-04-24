@@ -23,4 +23,4 @@ def make_comparator(ascending):
     Returns:
         Comparison function that compares two items.
     """
-    return lambda x, y: x > y if ascending else y > x
+    return lambda x, y: x > y if ascending else x < y
