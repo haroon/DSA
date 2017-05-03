@@ -7,9 +7,7 @@ class undirected_graph(object):
         """Initialization method. Takes the number of vertices as a parameter."""
         self.V = V
         self.E = 0
-        self.bags = []
-        for _ in range(self.V):
-            self.bags.append([])
+        self.bags = [[] for _ in range(self.V)]
 
     def __str__(self):
         """Readable string representation of the graph."""
@@ -48,7 +46,9 @@ class undirected_graph(object):
         self._validate_vertex(w)
         if not v in self.bags[w] and not w in self.bags[v]:
             self.bags[v].append(w)
-            self.bags[w].append(v)
+            # Avoid adding edge twice if connecting to the same vertex.
+            if not v == w:
+                self.bags[w].append(v)
             self.E = self.E + 1
 
     def _validate_vertex(self, v):
