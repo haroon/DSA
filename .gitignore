@@ -1,1 +1,8 @@
+.gitignore
 py/.idea/
+cpp/.vs/
+cpp/cpp.sln
+cpp/cpp.VC.db
+cpp/cpp.VC.VC.opendb
+cpp/cpp.vcxproj
+cpp/cpp.vcxproj.filters
