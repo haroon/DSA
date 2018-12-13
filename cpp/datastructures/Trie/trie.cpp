@@ -56,7 +56,5 @@ int main()
 	}
 	std::cout << "Erasetests finished successfully.\n" << std::endl;
 
-
-
 	return 0;
 }
