@@ -4,19 +4,29 @@
 #include <map>
 #include <memory>
 
-class TrieNode;
-typedef std::shared_ptr<TrieNode> TrieNodePtr;
-typedef std::map<char, TrieNodePtr> ChildrenMap;
-typedef std::shared_ptr<ChildrenMap> ChildrenMapPtr;
-
-
+template<typename T>
 class TrieNode
 {
+	typedef std::shared_ptr<TrieNode> TrieNodePtr;
+	typedef std::map<char, TrieNodePtr> ChildrenMap;
+	typedef std::shared_ptr<ChildrenMap> ChildrenMapPtr;
+
 public:
 	TrieNode() :
-		m_bIsWord(false),
+		m_bHasValue(false),
 		m_children(std::make_shared<ChildrenMap>())
 	{
+	}
+
+	T GetValue()
+	{
+		return m_value;
+	}
+
+	void SetValue(T value)
+	{
+		m_value = value;
+		m_bHasValue = true;
 	}
 
 	ChildrenMapPtr GetChildren()
@@ -24,19 +34,20 @@ public:
 		return m_children;
 	}
 
-	bool IsWord()
+	bool HasValue()
 	{
-		return m_bIsWord;
+		return m_bHasValue;
 	}
 
-	void SetWord(bool bIsWord)
+	void HasValue(bool bHasValue)
 	{
-		m_bIsWord = bIsWord;
+		m_bHasValue = bHasValue;
 	}
 
 private:
-	bool m_bIsWord;
+	bool m_bHasValue;
 	ChildrenMapPtr m_children;
+	T m_value;
 };
 
 #endif // ! __TRIENODE_H__
