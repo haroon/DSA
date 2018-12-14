@@ -108,6 +108,11 @@ public:
 private:
 	TrieNodePtr Find(const std::string& key)
 	{
+		if (key.empty())
+		{
+			return nullptr;
+		}
+
 		ChildrenMapPtr children = m_pRoot->GetChildren();
 		typename ChildrenMap::iterator it;
 		for (size_t idx = 0; idx < key.size(); ++idx)
