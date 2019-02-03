@@ -44,7 +44,6 @@ class LinkedList():
         next = self.head
         if next and next.val == val:
             self.head = next.next
-            self.head = None
             next = None
             return
             
